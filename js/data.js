@@ -11,8 +11,8 @@ window.SERIES = [
       "en": "This series, with no specific theme, captures my personal take on ordinary things from around the world."
     },
     "years": "2017-2026",
-    "count": 8,
-    "coverIndex": 5,
+    "count": 9,
+    "coverIndex": 6,
     "photos": [
       {
         "title": "Sulle spalle dei giganti",
@@ -261,6 +261,56 @@ window.SERIES = [
           {
             "w": 3886,
             "src": "images/street/DSCF2308-2560.jpg"
+          }
+        ]
+      },
+      {
+        "title": "Tre",
+        "place": "Paris",
+        "year": 2018,
+        "aspect": 1.5,
+        "webp": [
+          {
+            "w": 960,
+            "src": "images/street/DSCF2018-2-640.webp"
+          },
+          {
+            "w": 1440,
+            "src": "images/street/DSCF2018-2-960.webp"
+          },
+          {
+            "w": 1920,
+            "src": "images/street/DSCF2018-2-1280.webp"
+          },
+          {
+            "w": 2880,
+            "src": "images/street/DSCF2018-2-1920.webp"
+          },
+          {
+            "w": 3840,
+            "src": "images/street/DSCF2018-2-2560.webp"
+          }
+        ],
+        "jpg": [
+          {
+            "w": 960,
+            "src": "images/street/DSCF2018-2-640.jpg"
+          },
+          {
+            "w": 1440,
+            "src": "images/street/DSCF2018-2-960.jpg"
+          },
+          {
+            "w": 1920,
+            "src": "images/street/DSCF2018-2-1280.jpg"
+          },
+          {
+            "w": 2880,
+            "src": "images/street/DSCF2018-2-1920.jpg"
+          },
+          {
+            "w": 3840,
+            "src": "images/street/DSCF2018-2-2560.jpg"
           }
         ]
       },
