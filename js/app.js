@@ -134,9 +134,12 @@ function plate(photo, index, { stageHeight, eager, onClick, zoomable } = {}) {
   return p;
 }
 
-// Copertina più piccola dell'intera altezza dello stage: il resto è occupato
-// dal riquadro descrizione a fianco. Solo per la home.
-const HOME_COVER_RATIO = 0.6;
+// Non determina più l'altezza reale della copertina (in CSS .series-row ora
+// cresce per riempire lo spazio disponibile, vedi style.css) — resta solo
+// una stima usata per scegliere una risoluzione immagine adeguata via
+// stageSizesPx(). Tenuta alta perché la copertina ora occupa quasi tutta
+// l'altezza dello stage, meno il titolo sopra.
+const HOME_COVER_RATIO = 0.82;
 
 function renderHome(t, stageHeight) {
   const intro = el('div', 'intro home');
@@ -154,9 +157,21 @@ function renderHome(t, stageHeight) {
 
     const row = el('div', 'series-row');
 
+    // L'altezza della copertina è impostata in CSS (percentuale, .series-media),
+    // non qui via JS: leggere stage.clientHeight per fissare un pixel prima
+    // che il layout sia definitivo dava misure sbagliate in Safari (la
+    // copertina risultava minuscola, ammassata in basso). coverHeight resta
+    // solo per scegliere la risoluzione giusta dell'immagine da scaricare.
     const media = el('div', 'series-media');
-    media.style.height = coverHeight + 'px';
-    media.appendChild(buildPicture(cover, { eager: i < EAGER_COUNT, sizesPx: stageSizesPx(coverHeight, cover.aspect) }));
+    // Sempre eager (non "i < EAGER_COUNT" come nelle serie): finché la
+    // copertina non è scaricata, Chrome calcola male la larghezza
+    // "intrinseca" di .series-row/.series-entry (il contenitore risulta
+    // stretto quanto il solo riquadro testo, foto esclusa, pur dipingendo
+    // poi la foto alla sua larghezza reale — sfora visivamente). L'aspect-
+    // ratio sul <picture> basta per il rendering della singola foto, ma non
+    // per la propagazione verso l'alto di quella misura mentre l'immagine
+    // è ancora lazy. Sono poche foto (una per serie): eager va bene.
+    media.appendChild(buildPicture(cover, { eager: true, sizesPx: stageSizesPx(coverHeight, cover.aspect) }));
     media.addEventListener('click', function () { open(s.id); });
     row.appendChild(media);
 
@@ -350,6 +365,35 @@ document.getElementById('lang').addEventListener('click', function (e) {
   e.preventDefault();
   state.lang = state.lang === 'it' ? 'en' : 'it';
   render();
+});
+
+// Frecce ← → per scorrere tra foto/serie. Prima non esisteva affatto per lo
+// stage principale (solo il lightbox gestiva le proprie frecce) — non era
+// "rotto" in un browser e giusto in un altro, semplicemente mancava: i
+// browser non danno questo comportamento in modo implicito e uniforme.
+function scrollToAdjacent(direction) {
+  const items = [...stage.children];
+  if (!items.length) return;
+  const stageRect = stage.getBoundingClientRect();
+  const centerX = stageRect.left + stageRect.width / 2;
+
+  let currentIndex = 0;
+  let minDist = Infinity;
+  items.forEach(function (item, i) {
+    const r = item.getBoundingClientRect();
+    const dist = Math.abs(r.left + r.width / 2 - centerX);
+    if (dist < minDist) { minDist = dist; currentIndex = i; }
+  });
+
+  const targetIndex = Math.min(items.length - 1, Math.max(0, currentIndex + direction));
+  const targetRect = items[targetIndex].getBoundingClientRect();
+  stage.scrollBy({ left: (targetRect.left + targetRect.width / 2) - centerX, behavior: 'smooth' });
+}
+
+document.addEventListener('keydown', function (e) {
+  if (document.body.classList.contains('lb-open')) return; // le frecce le gestisce già il lightbox
+  if (e.key === 'ArrowRight') scrollToAdjacent(1);
+  else if (e.key === 'ArrowLeft') scrollToAdjacent(-1);
 });
 
 window.addEventListener('resize', debounce(recomputeSizes, 200));

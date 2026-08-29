@@ -63,7 +63,11 @@ a:hover { color: var(--gold); }
   display: flex;
   overflow-x: auto;
   overflow-y: hidden;
-  scroll-snap-type: x mandatory;
+  /* "proximity" e non "mandatory": Safari con mandatory aggancia in modo
+     brusco ad ogni minimo movimento della rotella invece di scorrere fluido
+     — è la causa più probabile sia dello scatto sia della sensazione di
+     foto "più distanti" quando si scorre col mouse/trackpad. */
+  scroll-snap-type: x proximity;
 }
 
 .intro {
@@ -97,6 +101,18 @@ a:hover { color: var(--gold); }
   flex: 0 0 auto;
   display: flex;
   flex-direction: column;
+  /* Senza questo, i figli (di default "stretch") si allargano a riempire
+     .plate — ma la larghezza di .plate dovrebbe derivare dalla foto al suo
+     interno (via aspect-ratio): dipendenza circolare che Chrome e Safari
+     risolvono diversamente, con più spazio vuoto tra le foto in Safari. */
+  align-items: flex-start;
+  /* Ridondante con align-items:flex-start in Chrome, ma in Safari lo
+     "shrink-to-fit" implicito di un flex item non sempre combacia con la
+     larghezza reale della foto (aspect-ratio × altezza): risultato, spazio
+     vuoto extra tra una foto e la successiva. width:max-content forza
+     esplicitamente .plate a misurare esattamente il contenuto (la foto),
+     invece di lasciarlo all'algoritmo di sizing implicito del flexbox. */
+  width: max-content;
   gap: 14px;
   padding: 32px 28px 72px 0;
   scroll-snap-align: center;
@@ -109,6 +125,7 @@ a:hover { color: var(--gold); }
    luce, così non si vede un lampo "tutte chiare" appena si entra nella serie. */
 .stage.serie-view .plate { opacity: 0.14; }
 .photo-title {
+  align-self: stretch;
   margin: 0 0 4px;
   font-size: 15px;
   line-height: 1.4;
@@ -127,6 +144,7 @@ a:hover { color: var(--gold); }
 }
 .plate:hover img { opacity: 1; }
 .caption {
+  align-self: stretch;
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: 0.1em;
@@ -135,7 +153,19 @@ a:hover { color: var(--gold); }
 
 .series-entry {
   flex: 0 0 auto;
+  /* Nessun width esplicito: la larghezza resta quella "naturale" del
+     contenuto (immagine + testo) — un "width:100%" fisso qui riservava
+     sempre uno schermo intero anche quando il contenuto reale era più
+     stretto, creando un grande vuoto prima della serie successiva.
+     "width:max-content" sembrava la soluzione più esplicita, ma in Chrome
+     collassa in modo errato (a poche decine di px) per le serie non ancora
+     scrollate in vista — un bug/edge-case del motore di rendering con
+     max-content su un contenitore flex a più livelli, verificato
+     empiricamente. Il sizing di default (flex-basis:auto) funziona invece
+     correttamente. max-width:100% resta come unico tetto anti-overflow. */
+  max-width: 100%;
   height: 100%;
+  min-height: 0;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
@@ -145,6 +175,7 @@ a:hover { color: var(--gold); }
 }
 .series-entry:last-child { padding-right: 56px; }
 .series-title {
+  flex: 0 0 auto;
   margin: 0;
   font-size: 20px;
   font-weight: 300;
@@ -153,14 +184,46 @@ a:hover { color: var(--gold); }
 }
 .series-row {
   display: flex;
-  align-items: flex-end;
-  gap: 28px;
+  /* Non più flex-end: immagine e testo devono avere la stessa altezza
+     (stretch, il default), non solo essere allineati in basso. */
+  gap: 24px;
+  /* Occupa tutto lo spazio verticale che resta dopo il titolo, invece di una
+     percentuale fissa (prima 60%): così la copertina è sempre alta quanto
+     lo consente la pagina, non una frazione arbitraria. flex-basis 0 +
+     min-height:0 (non "auto") sono ciò che permette a un figlio flex di
+     crescere oltre la sua dimensione di contenuto in un contenitore colonna. */
+  flex: 1 1 0;
+  min-height: 0;
 }
-.series-media { cursor: pointer; flex: 0 0 auto; }
-.series-media picture { display: block; height: 100%; }
+.series-media {
+  cursor: pointer;
+  height: 100%;
+  /* flex:0 0 auto, niente flex-shrink: provato ad abilitarlo (0 1 auto) come
+     rete di sicurezza anti-overflow, ma per le foto non ancora caricate
+     (lazy, fuori dallo schermo) Chrome calcola lo spazio riservato a
+     .series-media come se fosse ~0 pur DIPINGENDO poi la foto alla sua
+     larghezza reale (aspect-ratio × altezza) — la foto sfora visivamente
+     dalla riga invece di restringersi, un bug peggiore di quello che
+     doveva risolvere. Meglio niente shrink: la foto resta sempre larga
+     esattamente quanto la sua aspect-ratio la rende, a filo col titolo
+     sopra; lo sforamento nei rari casi di foto molto larghe resta un
+     limite noto, non gestito, preferibile a un collasso/sforamento più
+     frequente e peggiore. */
+  flex: 0 0 auto;
+}
+.series-media picture {
+  display: block;
+  height: 100%;
+  max-width: 100%;
+}
 .series-media img {
+  /* width:auto (non 100%): la larghezza segue l'aspect-ratio della foto
+     all'altezza disponibile. max-width:100% è solo una rete di sicurezza
+     residua (.series-media non si restringe più, vedi sopra: senza
+     flex-shrink questo max-width non dovrebbe quasi mai intervenire). */
   height: 100%;
   width: auto;
+  max-width: 100%;
   object-fit: contain;
   display: block;
   opacity: 0.92;
@@ -168,10 +231,16 @@ a:hover { color: var(--gold); }
 }
 .series-media:hover img { opacity: 1; }
 .series-desc {
-  width: 300px;
-  flex: 0 0 auto;
+  /* Larghezza fissa (non si restringe: è l'immagine ad assorbire lo spazio
+     che resta, vedi .series-media). Altezza = quella della riga (stessa
+     della foto), via stretch di default su .series-row; il testo è
+     centrato verticalmente al suo interno. */
+  width: 240px;
+  flex: 0 0 240px;
+  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 14px;
   text-align: left;
 }
@@ -281,8 +350,10 @@ body.lb-open { overflow: hidden; }
   .intro.home, .intro.serie { width: 78vw; padding: 0 28px 56px 20px; }
   .plate { padding: 24px 18px 56px 0; }
   .series-entry { padding: 24px 18px 56px 0; }
-  .series-row { flex-direction: column; align-items: flex-start; gap: 14px; }
-  .series-desc { width: 78vw; }
+  .series-row { flex: 0 0 auto; flex-direction: column; align-items: flex-start; gap: 14px; height: auto; }
+  .series-media { flex: 0 0 auto; height: auto; width: 100%; }
+  .series-media picture, .series-media img { height: auto; width: 100%; }
+  .series-desc { flex: 0 0 auto; width: 78vw; height: auto; justify-content: flex-start; }
   .about { flex-direction: column; align-items: flex-start; gap: 24px; overflow-y: auto; padding: 20px; }
   .about img { height: auto; width: 100%; }
   .foot { padding: 0 20px 18px; }
