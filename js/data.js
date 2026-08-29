@@ -11,8 +11,8 @@ window.SERIES = [
       "en": "This series, with no specific theme, captures my personal take on ordinary things from around the world."
     },
     "years": "2017-2026",
-    "count": 9,
-    "coverIndex": 6,
+    "count": 8,
+    "coverIndex": 5,
     "photos": [
       {
         "title": "Sulle spalle dei giganti",
@@ -311,56 +311,6 @@ window.SERIES = [
           {
             "w": 3840,
             "src": "images/street/DSCF2018-2-2560.jpg"
-          }
-        ]
-      },
-      {
-        "title": "Tre sguardi",
-        "place": "Paris",
-        "year": 2018,
-        "aspect": 1.5,
-        "webp": [
-          {
-            "w": 960,
-            "src": "images/street/DSCF2018-640.webp"
-          },
-          {
-            "w": 1440,
-            "src": "images/street/DSCF2018-960.webp"
-          },
-          {
-            "w": 1920,
-            "src": "images/street/DSCF2018-1280.webp"
-          },
-          {
-            "w": 2880,
-            "src": "images/street/DSCF2018-1920.webp"
-          },
-          {
-            "w": 3840,
-            "src": "images/street/DSCF2018-2560.webp"
-          }
-        ],
-        "jpg": [
-          {
-            "w": 960,
-            "src": "images/street/DSCF2018-640.jpg"
-          },
-          {
-            "w": 1440,
-            "src": "images/street/DSCF2018-960.jpg"
-          },
-          {
-            "w": 1920,
-            "src": "images/street/DSCF2018-1280.jpg"
-          },
-          {
-            "w": 2880,
-            "src": "images/street/DSCF2018-1920.jpg"
-          },
-          {
-            "w": 3840,
-            "src": "images/street/DSCF2018-2560.jpg"
           }
         ]
       },
