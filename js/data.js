@@ -12,58 +12,8 @@ window.SERIES = [
     },
     "years": "2017-2026",
     "count": 8,
-    "coverIndex": 6,
+    "coverIndex": 5,
     "photos": [
-      {
-        "title": "",
-        "place": "Palermo",
-        "year": null,
-        "aspect": 1.5,
-        "webp": [
-          {
-            "w": 960,
-            "src": "images/street/DSCF3472-640.webp"
-          },
-          {
-            "w": 1440,
-            "src": "images/street/DSCF3472-960.webp"
-          },
-          {
-            "w": 1920,
-            "src": "images/street/DSCF3472-1280.webp"
-          },
-          {
-            "w": 2880,
-            "src": "images/street/DSCF3472-1920.webp"
-          },
-          {
-            "w": 3840,
-            "src": "images/street/DSCF3472-2560.webp"
-          }
-        ],
-        "jpg": [
-          {
-            "w": 960,
-            "src": "images/street/DSCF3472-640.jpg"
-          },
-          {
-            "w": 1440,
-            "src": "images/street/DSCF3472-960.jpg"
-          },
-          {
-            "w": 1920,
-            "src": "images/street/DSCF3472-1280.jpg"
-          },
-          {
-            "w": 2880,
-            "src": "images/street/DSCF3472-1920.jpg"
-          },
-          {
-            "w": 3840,
-            "src": "images/street/DSCF3472-2560.jpg"
-          }
-        ]
-      },
       {
         "title": "Sulle spalle dei giganti",
         "place": "Oslo",
@@ -411,6 +361,56 @@ window.SERIES = [
           {
             "w": 3840,
             "src": "images/saturi/DSCF0100-2560.jpg"
+          }
+        ]
+      },
+      {
+        "title": "",
+        "place": "Palermo",
+        "year": null,
+        "aspect": 1.5,
+        "webp": [
+          {
+            "w": 960,
+            "src": "images/street/DSCF3472-640.webp"
+          },
+          {
+            "w": 1440,
+            "src": "images/street/DSCF3472-960.webp"
+          },
+          {
+            "w": 1920,
+            "src": "images/street/DSCF3472-1280.webp"
+          },
+          {
+            "w": 2880,
+            "src": "images/street/DSCF3472-1920.webp"
+          },
+          {
+            "w": 3840,
+            "src": "images/street/DSCF3472-2560.webp"
+          }
+        ],
+        "jpg": [
+          {
+            "w": 960,
+            "src": "images/street/DSCF3472-640.jpg"
+          },
+          {
+            "w": 1440,
+            "src": "images/street/DSCF3472-960.jpg"
+          },
+          {
+            "w": 1920,
+            "src": "images/street/DSCF3472-1280.jpg"
+          },
+          {
+            "w": 2880,
+            "src": "images/street/DSCF3472-1920.jpg"
+          },
+          {
+            "w": 3840,
+            "src": "images/street/DSCF3472-2560.jpg"
           }
         ]
       }
