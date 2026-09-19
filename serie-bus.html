@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>gente dei bus — Luca Sabatucci</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="serie">
+  <div class="serie-root">
+    <div class="scroller" id="scroller">
+
+      <section class="screen screen-intro">
+        <div class="serie-intro" id="serie-intro" data-intro-it="Questo progetto di street si concentra su ciò che accade a bordo di autobus e tram e alle loro fermate: crocevia urbani attraversati senza sosta da vite, storie e destini diversi" data-intro-en="This street photography project focuses on life aboard buses and trams and at their stops—urban crossroads where countless lives, stories, and destinies are constantly passing through" data-count-it="2 scatti" data-count-en="2 frames">
+          <p class="serie-label" data-i18n="serie-label">Serie</p>
+          <h1 class="serie-title" data-i18n="title-bus">gente dei bus</h1>
+          <p class="serie-text" id="serie-text">Questo progetto di street si concentra su ciò che accade a bordo di autobus e tram e alle loro fermate: crocevia urbani attraversati senza sosta da vite, storie e destini diversi</p>
+          <p class="serie-count" id="serie-count">2 scatti</p>
+          <p class="serie-hint" data-i18n="scroll-hint">Scorri ↓</p>
+        </div>
+      </section>
+
+      <section class="screen screen-photo" data-title-it="" data-title-en="">
+        <picture><source type="image/webp" srcset="images/bus/DSCF3083-640.webp 960w, images/bus/DSCF3083-960.webp 1440w, images/bus/DSCF3083-1280.webp 1920w" sizes="100vw" /><img src="images/bus/DSCF3083-1280.jpg" srcset="images/bus/DSCF3083-640.jpg 960w, images/bus/DSCF3083-960.jpg 1440w, images/bus/DSCF3083-1280.jpg 1920w" sizes="100vw" alt="" decoding="async" /></picture>
+      </section>
+      <section class="screen screen-photo" data-title-it="" data-title-en="">
+        <picture><source type="image/webp" srcset="images/bus/DSCF3028-640.webp 960w, images/bus/DSCF3028-960.webp 1440w, images/bus/DSCF3028-1280.webp 1920w, images/bus/DSCF3028-1920.webp 2880w" sizes="100vw" /><img src="images/bus/DSCF3028-1920.jpg" srcset="images/bus/DSCF3028-640.jpg 960w, images/bus/DSCF3028-960.jpg 1440w, images/bus/DSCF3028-1280.jpg 1920w, images/bus/DSCF3028-1920.jpg 2880w" sizes="100vw" alt="" decoding="async" loading="lazy" /></picture>
+      </section>
+
+      <section class="screen screen-end" aria-hidden="true"></section>
+
+    </div>
+
+    <div class="topbar">
+      <a class="back" href="index.html" title="Tutte le serie" aria-label="Tutte le serie">←</a>
+      <p class="photo-name" id="photo-name"></p>
+      <span class="counter" id="counter"></span>
+    </div>
+
+    <div class="progress" id="progress"></div>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/lightbox.js"></script>
+  <script src="js/serie.js"></script>
+</body>
+</html>

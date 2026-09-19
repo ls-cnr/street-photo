@@ -1,34 +1,110 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Luca Sabatucci — Street Photography</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500&family=JetBrains+Mono:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/style.css">
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Luca Sabatucci — street photography</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Instrument+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<div class="app">
-  <header class="head">
-    <a class="logo" href="#" data-nav="home">Luca Sabatucci</a>
-    <nav class="nav">
-      <a href="#" data-nav="home" data-i18n="navWork">Serie</a>
-      <a href="#" data-nav="about" data-i18n="navAbout">Chi sono</a>
-      <a href="#" id="lang" data-i18n="langLabel">IT / EN</a>
-    </nav>
-  </header>
+  <div class="page">
+    <header class="site-header">
+      <a class="logo" href="index.html">Luca Sabatucci</a>
+      <nav class="nav">
+        <a class="is-current" href="index.html" data-i18n="nav-series">Serie</a>
+        <a href="chi-sono.html" data-i18n="nav-about">Chi sono</a>
+        <button class="lang-toggle" type="button" id="lang-toggle">IT / en</button>
+      </nav>
+    </header>
 
-  <main class="stage" id="stage"></main>
+    <section class="intro">
+      <p class="kicker" data-i18n="kicker">street photography</p>
+      <p class="lede" data-i18n="lede">La mia visione della vita urbana e quotidiana</p>
+    </section>
 
-  <footer class="foot">
-    <span id="hint" data-i18n="scrollHint">SCORRI →</span>
-    <div class="switch" id="switch"></div>
-  </footer>
-</div>
-<script src="js/data.js"></script>
-<script src="js/app.js"></script>
-<script src="js/lightbox.js"></script>
+    <div class="series-grid">
+      <a class="series-card" href="serie-street.html">
+        <div class="series-cover">
+          <picture><source type="image/webp" srcset="images/street/DSCF2018-2-640.webp 960w, images/street/DSCF2018-2-960.webp 1440w, images/street/DSCF2018-2-1280.webp 1920w, images/street/DSCF2018-2-1920.webp 2880w, images/street/DSCF2018-2-2560.webp 3840w" sizes="460px" /><img src="images/street/DSCF2018-2-2560.jpg" srcset="images/street/DSCF2018-2-640.jpg 960w, images/street/DSCF2018-2-960.jpg 1440w, images/street/DSCF2018-2-1280.jpg 1920w, images/street/DSCF2018-2-1920.jpg 2880w, images/street/DSCF2018-2-2560.jpg 3840w" sizes="460px" alt="strade del mondo" decoding="async" /></picture>
+        </div>
+        <div class="series-text">
+          <div class="series-meta">
+            <span class="series-num">01</span>
+            <span data-i18n="meta-street">8 scatti</span>
+          </div>
+          <h2 class="series-title" data-i18n="title-street">strade del mondo</h2>
+          <p class="series-desc" data-i18n="desc-street">Questa serie cattura il mio personale punto di vista su elementi ordinari e allo stesso tempo eccezionali delle strade in giro per il mondo</p>
+          <p class="series-cta" data-i18n="cta">Apri la serie →</p>
+        </div>
+      </a>
+      <a class="series-card" href="serie-saturi.html">
+        <div class="series-cover">
+          <picture><source type="image/webp" srcset="images/saturi/DSCF9301-640.webp 427w, images/saturi/DSCF9301-960.webp 640w, images/saturi/DSCF9301-1280.webp 853w, images/saturi/DSCF9301-1920.webp 1280w, images/saturi/DSCF9301-2560.webp 1707w" sizes="460px" /><img src="images/saturi/DSCF9301-2560.jpg" srcset="images/saturi/DSCF9301-640.jpg 427w, images/saturi/DSCF9301-960.jpg 640w, images/saturi/DSCF9301-1280.jpg 853w, images/saturi/DSCF9301-1920.jpg 1280w, images/saturi/DSCF9301-2560.jpg 1707w" sizes="460px" alt="saturi" decoding="async" /></picture>
+        </div>
+        <div class="series-text">
+          <div class="series-meta">
+            <span class="series-num">02</span>
+            <span data-i18n="meta-saturi">6 scatti</span>
+          </div>
+          <h2 class="series-title" data-i18n="title-saturi">saturi</h2>
+          <p class="series-desc" data-i18n="desc-saturi">Questa serie cattura la mia Palermo giocando con luci, ombre e colori saturi, e creando suggestivi punti di vista sull'ordinarietà</p>
+          <p class="series-cta" data-i18n="cta">Apri la serie →</p>
+        </div>
+      </a>
+      <a class="series-card" href="serie-scopa.html">
+        <div class="series-cover">
+          <picture><source type="image/webp" srcset="images/scopa/DSC_1917-640.webp 959w, images/scopa/DSC_1917-960.webp 1438w, images/scopa/DSC_1917-1280.webp 1917w, images/scopa/DSC_1917-1920.webp 2876w, images/scopa/DSC_1917-2560.webp 3835w" sizes="460px" /><img src="images/scopa/DSC_1917-2560.jpg" srcset="images/scopa/DSC_1917-640.jpg 959w, images/scopa/DSC_1917-960.jpg 1438w, images/scopa/DSC_1917-1280.jpg 1917w, images/scopa/DSC_1917-1920.jpg 2876w, images/scopa/DSC_1917-2560.jpg 3835w" sizes="460px" alt="scopa" decoding="async" loading="lazy" /></picture>
+        </div>
+        <div class="series-text">
+          <div class="series-meta">
+            <span class="series-num">03</span>
+            <span data-i18n="meta-scopa">8 scatti</span>
+          </div>
+          <h2 class="series-title" data-i18n="title-scopa">scopa</h2>
+          <p class="series-desc" data-i18n="desc-scopa">Questo è un progetto che inquadra una abitudine prettamente palermitana di estendere il proprio domicilio all'esterno della soglia, lasciando oggetti (nello specifico la scopa) direttamente per strada.</p>
+          <p class="series-cta" data-i18n="cta">Apri la serie →</p>
+        </div>
+      </a>
+      <a class="series-card" href="serie-bus.html">
+        <div class="series-cover">
+          <picture><source type="image/webp" srcset="images/bus/DSCF3028-640.webp 960w, images/bus/DSCF3028-960.webp 1440w, images/bus/DSCF3028-1280.webp 1920w, images/bus/DSCF3028-1920.webp 2880w" sizes="460px" /><img src="images/bus/DSCF3028-1920.jpg" srcset="images/bus/DSCF3028-640.jpg 960w, images/bus/DSCF3028-960.jpg 1440w, images/bus/DSCF3028-1280.jpg 1920w, images/bus/DSCF3028-1920.jpg 2880w" sizes="460px" alt="gente dei bus" decoding="async" loading="lazy" /></picture>
+        </div>
+        <div class="series-text">
+          <div class="series-meta">
+            <span class="series-num">04</span>
+            <span data-i18n="meta-bus">2 scatti</span>
+          </div>
+          <h2 class="series-title" data-i18n="title-bus">gente dei bus</h2>
+          <p class="series-desc" data-i18n="desc-bus">Questo progetto di street si concentra su ciò che accade a bordo di autobus e tram e alle loro fermate: crocevia urbani attraversati senza sosta da vite, storie e destini diversi</p>
+          <p class="series-cta" data-i18n="cta">Apri la serie →</p>
+        </div>
+      </a>
+      <a class="series-card" href="serie-vicoli.html">
+        <div class="series-cover">
+          <picture><source type="image/webp" srcset="images/vicoli/DSC_4998-640.webp 959w, images/vicoli/DSC_4998-960.webp 1438w, images/vicoli/DSC_4998-1280.webp 1917w, images/vicoli/DSC_4998-1920.webp 2876w, images/vicoli/DSC_4998-2560.webp 3834w" sizes="460px" /><img src="images/vicoli/DSC_4998-2560.jpg" srcset="images/vicoli/DSC_4998-640.jpg 959w, images/vicoli/DSC_4998-960.jpg 1438w, images/vicoli/DSC_4998-1280.jpg 1917w, images/vicoli/DSC_4998-1920.jpg 2876w, images/vicoli/DSC_4998-2560.jpg 3834w" sizes="460px" alt="vicoli vicoli" decoding="async" loading="lazy" /></picture>
+        </div>
+        <div class="series-text">
+          <div class="series-meta">
+            <span class="series-num">05</span>
+            <span data-i18n="meta-vicoli">13 scatti</span>
+          </div>
+          <h2 class="series-title" data-i18n="title-vicoli">vicoli vicoli</h2>
+          <p class="series-desc" data-i18n="desc-vicoli">I vicoli sono sempre gli stessi, e spesso lo sono anche i bambini che li abitano</p>
+          <p class="series-cta" data-i18n="cta">Apri la serie →</p>
+        </div>
+      </a>
+    </div>
+
+    <footer class="site-footer">
+      <span>© Luca Sabatucci</span>
+      <span>Palermo</span>
+    </footer>
+  </div>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/home.js"></script>
 </body>
 </html>
