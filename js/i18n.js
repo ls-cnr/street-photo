@@ -4,7 +4,7 @@ window.I18N = {
     "nav-series": "Serie",
     "nav-about": "Chi sono",
     "kicker": "street photography",
-    "lede": "La mia visione della vita urbana e quotidiana",
+    "lede": "\"How much could we absorb and embrace of a moment of existence that would disappear in an instant?” — Joel Meyerowitz",
     "cta": "Apri la serie →",
     "serie-label": "Serie",
     "scroll-hint": "Scorri ↓",
@@ -24,13 +24,13 @@ window.I18N = {
     "meta-vicoli": "13 scatti",
     "title-vicoli": "vicoli vicoli",
     "desc-vicoli": "I vicoli sono sempre gli stessi, e spesso lo sono anche i bambini che li abitano",
-    "about-bio": "Fotografo di strada. Documento e condivido diverse visioni della vita urbana e quotidiana: quello che accade mentre nessuno guarda."
+    "about-bio": "Sono un fotografo di strada con base a Palermo. Attraverso le mie immagini esploro la vita urbana e quotidiana, cercando ciò che accade mentre nessuno guarda: piccoli gesti, incontri fugaci, abitudini e coincidenze capaci di trasformare l’ordinario in qualcosa di inatteso.\n\nPalermo è il mio punto di partenza e un soggetto ricorrente: una città che osservo attraverso luci, ombre e colori saturi, nei suoi vicoli, sui mezzi pubblici e lungo quelle soglie dove la vita privata si estende naturalmente nello spazio della strada.\n\nIl mio sguardo si apre anche alle città e alle strade del mondo, alla ricerca di frammenti di vita autentici e irripetibili: scene che esistono per un solo istante e che la fotografia può sottrarre al loro inevitabile scomparire.\n"
   },
   "en": {
     "nav-series": "Series",
     "nav-about": "About",
     "kicker": "street photography",
-    "lede": "My own vision of urban, everyday life",
+    "lede": "\"How much could we absorb and embrace of a moment of existence that would disappear in an instant?” — Joel Meyerowitz",
     "cta": "Open the series →",
     "serie-label": "Series",
     "scroll-hint": "Scroll ↓",
@@ -50,7 +50,7 @@ window.I18N = {
     "meta-vicoli": "13 frames",
     "title-vicoli": "through the alleys",
     "desc-vicoli": "The alleyways are always the same, and often so are the children who inhabit them",
-    "about-bio": "Street photographer. I document and share different visions of urban, everyday life: what happens while nobody is looking."
+    "about-bio": "I am a street photographer based in Palermo. Through my images, I explore urban and everyday life, searching for what happens when no one is looking: subtle gestures, fleeting encounters, habits, and coincidences that can transform the ordinary into something unexpected.\n\nPalermo is both my starting point and a recurring subject—a city I observe through light, shadow, and saturated colors, in its alleyways, aboard public transport, and along those thresholds where private life naturally spills into the street.\n\nMy gaze also extends to cities and streets around the world, in search of authentic, unrepeatable fragments of life: scenes that exist for only a moment and that photography can preserve before they inevitably disappear.\n"
   }
 };
 

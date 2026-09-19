@@ -51,7 +51,7 @@ img{display:block;max-width:100%}
 .series-meta{display:flex;gap:10px;align-items:baseline;font-family:var(--mono);font-size:11px;letter-spacing:.12em;color:var(--ink-4)}
 .series-num{color:var(--accent)}
 .series-title{font-family:var(--serif);font-weight:400;font-size:clamp(24px,2.4vw,32px);line-height:1.12;margin:14px 0 12px}
-.series-desc{font-size:14.5px;line-height:1.62;color:var(--ink-2);margin:0;text-wrap:pretty}
+.series-desc{font-size:16px;line-height:1.62;color:var(--ink-2);margin:0;text-wrap:pretty}
 .series-cta{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;margin:20px 0 0;color:var(--accent)}
 
 .site-footer{margin-top:clamp(80px,10vw,140px);padding-top:20px;border-top:1px solid var(--rule);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--ink-4)}
